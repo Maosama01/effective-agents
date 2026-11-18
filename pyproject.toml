@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "effective-agents"
+version = "0.1.0"
+description = "The patterns from Anthropic's 'Building effective agents', implemented directly on the Claude and Gemini APIs."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=2.10",
+    "google-genai>=3.5",
+    "pydantic>=2.7",
+    "pytest>=8",  # the coding-agent demo runs pytest on its workspace
+]
+
+[project.scripts]
+effective-agents = "effective_agents.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["effective_agents*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
